@@ -224,3 +224,14 @@ extension OrderedSet: Encodable where Element: Encodable {
         }
     }
 }
+
+
+extension OrderedSet: CustomReflectable {
+    public var customMirror: Mirror {
+        return Mirror(
+            self,
+            unlabeledChildren: array,
+            displayStyle: .collection
+        )
+    }
+}
